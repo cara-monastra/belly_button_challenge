@@ -1,4 +1,4 @@
-// pull for the data 
+// pull data 
 function buildMetadata(sample) {
     d3.json("https://2u-data-curriculum-team.s3.amazonaws.com/dataviz-classroom/v1.1/14-Interactive-Web-Visualizations/02-Homework/samples.json").then((data) => {
       
@@ -23,7 +23,7 @@ function buildMetadata(sample) {
       let otu_labels = result.otu_labels;
       let sample_values = result.sample_values;
   
-      // Horiz. Bar Chart 
+      // Bar Chart 
       let yticks = otu_ids.slice(0, 10).map(otuID => `OTU ${otuID}`).reverse();
       let barData = [{
         y: yticks,
@@ -40,7 +40,7 @@ function buildMetadata(sample) {
   
       Plotly.newPlot("bar", barData, barLayout);
   
-      // Bubble Chart
+      // Bubble chart
       let bubbleData = [{
         x: otu_ids,
         y: sample_values,
@@ -77,7 +77,7 @@ function buildMetadata(sample) {
           .property("value", sampleIDs[i]);
       };
   
-      // Initial sample visuals
+      // Initial visuals
       let new_sample = sampleIDs[0];
       buildCharts(new_sample);
       buildMetadata(new_sample);
